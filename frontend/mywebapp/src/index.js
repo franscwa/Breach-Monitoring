@@ -7,14 +7,13 @@ import MyElement from './Components/test';
 import App from './App'
 import Sidebar from './Components/sidebar';
 import { Navbar } from 'react-bootstrap';
+import CredentialComponent from './Components/CredentialComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   
-    <View />
-    <Sidebar />
-    <App />
+    <CredentialComponent />
+    
      
   </React.StrictMode>
 );

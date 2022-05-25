@@ -28,13 +28,12 @@ public class CredentialService {
         return credentialRepo.save(credential);*/
     }
 
-
-
     public List<Credential> getAllCredentials() {
         return credentialRepo.findAll();
     }
 
     public Credential updateEmployee(Credential credential){
+
         return credentialRepo.save(credential);
     }
 
