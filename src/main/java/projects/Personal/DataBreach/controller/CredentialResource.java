@@ -41,7 +41,7 @@ public class CredentialResource {
 
     @PutMapping("/update")
     public ResponseEntity<Credential> updateCredential(@RequestBody Credential credential){
-        Credential newCredential = credentialService.updateEmployee(credential);
+        Credential newCredential = credentialService.checkCredential(credential);
 
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
@@ -51,6 +51,29 @@ public class CredentialResource {
         credentialService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    //@GetMapping("/find/{email}")
+    //public ResponseEntity<Credential> getEmployeeByEmail(@PathVariable("email") String email){
+    //    Credential credential = credentialService.findEmployeeByEmail(email);
+    //    return new ResponseEntity<>(credential, HttpStatus.OK);
+    //}
+
+    //@GetMapping("/find/{passwordHash}")
+    //public ResponseEntity<Credential> getEmployeeByPasswordHash(@PathVariable("passwordHash") String passwordHash){
+    //    Credential credential = credentialService.findEmployeeByPasswordHash(passwordHash);
+    //    return new ResponseEntity<>(credential, HttpStatus.OK);
+    //}
+
+    //@GetMapping("/find/{isCompromised}")
+    //public ResponseEntity<Credential> getEmployeeByIsCompromised(@PathVariable("isCompromised") Boolean isCompromised){
+    //    Credential credential = credentialService.findEmployeeByIsCompromised(isCompromised);
+    //    return new ResponseEntity<>(credential, HttpStatus.OK);
+    //}
+
+
+    //@GetMapping("/find/{securityLevel}")
+    //public ResponseEntity<Credential> getEmployeeBySecurityLevel(@PathVariable("securityLevel") Integer securityLevel){
+    //    Credential credential = credentialService.findEmployeeBySecurityLevel(securityLevel);
 
 
 }

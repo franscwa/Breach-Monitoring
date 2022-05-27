@@ -1,7 +1,7 @@
 import './sidebar.css'
 import axios from 'axios';
 function Sidebar() {
-    const [checkEmailBreaches, setEmailBreaches] = useState('');
+    const [checkEmailBreaches, setEmailBreaches] = useEffect('');
 
     const update = () => {
         axios
