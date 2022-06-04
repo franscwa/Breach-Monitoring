@@ -11,7 +11,7 @@ import projects.Personal.DataBreach.service.CredentialService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/credential")
+@RequestMapping("/api")
 public class CredentialResource {
     private final CredentialService credentialService;
 
@@ -19,27 +19,27 @@ public class CredentialResource {
         this.credentialService = credentialService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getCredentials")
     public ResponseEntity<List<Credential>> getAllCredentials(){
         List<Credential> credentials = credentialService.getAllCredentials();
         return new ResponseEntity<>(credentials, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Credential> getEmployeeById(@PathVariable("id") Long id){
-        Credential credential = credentialService.findEmployeeById(id);
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Credential> getAllCredentials(@PathVariable("id") Long id){
+        Credential credential = credentialService.findCredentialById(id);
         return new ResponseEntity<>(credential, HttpStatus.OK);
     }
 
 
 
-    @PostMapping("/add")
-    public ResponseEntity<Credential> addEmployee(@RequestBody Credential credential){
+    @PostMapping("/addCredential")
+    public ResponseEntity<Credential> addCredentials(@RequestBody Credential credential){
         Credential newCredential = credentialService.saveCredential(credential);
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateCredential")
     public ResponseEntity<Credential> updateCredential(@RequestBody Credential credential){
         Credential newCredential = credentialService.checkCredential(credential);
 

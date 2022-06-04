@@ -3,8 +3,8 @@ package projects.Personal.DataBreach.service;
 import org.apache.el.parser.AstFalse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import projects.Personal.DataBreach.exception.CredentialNotFound;
-import projects.Personal.DataBreach.exception.UserNotFoundException;
 import projects.Personal.DataBreach.model.Credential;
 import projects.Personal.DataBreach.repo.CredentialRepo;
 
@@ -36,29 +36,29 @@ public class CredentialService<WebClient> {
     }
 
     public Credential checkCredential(Credential credential){
-        {
-            WebClient webClient = WebClient.create("https://haveibeenpwned.com/api/v2/breachedaccount/" + passwordHash);
-            webClient.get()
-                    .retrieve()
-                    .bodyToMono(String.class)
-                    .subscribe(response -> {
-                        if (response.equalsIgnoreCase(pass)) {
-                            credential.setIsCompromised(true);
-                        } else {
-                            credential.setIsCompromised(false);
-                        }
-                    });
-
+        //write code to call rest api with rest template
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://api.pwnedpasswords.com/range/" + credential.getPrefixedHash();
+        String response = restTemplate.getForObject(url, String.class);
+        if(response.contains(credential.getHashedPassword())){
+            credential.setIsCompromised(true);
+        //add email notification
         }
+
+
         return credentialRepo.save(credential);
     }
 
-    public Credential findEmployeeById(Long id){
-        return credentialRepo.findEmployeeById(id)
+    public Credential findCredentialById(Long id){
+        return credentialRepo.findCredentialById(id)
                 .orElseThrow(() -> new CredentialNotFound("Credential by id " + id +" was not found!"));
     }
 
     public void deleteEmployee(Long id){
-        credentialRepo.deleteEmployeeById(id);
+        try{
+        credentialRepo.deleteEmployeeById(id);}
+        catch (Exception e){
+            System.out.println("Credential not found");
+        }
     }
 }
