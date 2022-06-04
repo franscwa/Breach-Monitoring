@@ -54,9 +54,9 @@ public class CredentialService<WebClient> {
                 .orElseThrow(() -> new CredentialNotFound("Credential by id " + id +" was not found!"));
     }
 
-    public void deleteEmployee(Long id){
+    public void deleteCredentialbyId(Long id){
         try{
-        credentialRepo.deleteEmployeeById(id);}
+        credentialRepo.deleteCredentialById(id);}
         catch (Exception e){
             System.out.println("Credential not found");
         }

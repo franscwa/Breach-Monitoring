@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface CredentialRepo extends JpaRepository<Credential, Long> {
-    void deleteEmployeeById(Long id);
+    void deleteCredentialById(Long id);
 
      //add find credential by id
     Optional<Credential> findCredentialById(Long id);
