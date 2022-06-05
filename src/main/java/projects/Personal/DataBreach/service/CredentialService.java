@@ -44,8 +44,6 @@ public class CredentialService<WebClient> {
             credential.setIsCompromised(true);
         //add email notification
         }
-
-
         return credentialRepo.save(credential);
     }
 

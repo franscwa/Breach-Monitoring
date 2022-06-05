@@ -11,7 +11,7 @@ import projects.Personal.DataBreach.service.CredentialService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/credentials")
 public class CredentialResource {
     private final CredentialService credentialService;
 
@@ -19,36 +19,36 @@ public class CredentialResource {
         this.credentialService = credentialService;
     }
 
-    @GetMapping("/getCredentials")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Credential>> getAllCredentials(){
         List<Credential> credentials = credentialService.getAllCredentials();
         return new ResponseEntity<>(credentials, HttpStatus.OK);
     }
 
     @GetMapping("/getById/{id}")
-    public ResponseEntity<Credential> getAllCredentials(@PathVariable("id") Long id){
+    public ResponseEntity<Credential> getCredentialById(@PathVariable("id") Long id){
         Credential credential = credentialService.findCredentialById(id);
         return new ResponseEntity<>(credential, HttpStatus.OK);
     }
 
 
 
-    @PostMapping("/addCredential")
+    @PostMapping("/addNew")
     public ResponseEntity<Credential> addCredentials(@RequestBody Credential credential){
         Credential newCredential = credentialService.saveCredential(credential);
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
 
-    @PutMapping("/updateCredential")
+    @PutMapping("/update")
     public ResponseEntity<Credential> updateCredential(@RequestBody Credential credential){
         Credential newCredential = credentialService.checkCredential(credential);
 
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
-        credentialService.deleteEmployee(id);
+    @DeleteMapping("/deleteById/{id}")
+    public ResponseEntity<?> deleteCredential(@PathVariable("id") Long id){
+        credentialService.deleteCredentialbyId(id);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
