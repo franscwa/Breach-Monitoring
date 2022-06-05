@@ -2,7 +2,11 @@
 # Data Breach Monitoring Web App
 
 [ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
+
+
 [ in progress ] Frontend - Mapping endpoints to React 
+
+
 [ planned ] PWA functionality
 _________________________________________________________________________________________________________________________________________________
 Backend for a web application built with Java + Spring + Maven + Redis 
