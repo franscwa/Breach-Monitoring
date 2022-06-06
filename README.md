@@ -2,7 +2,7 @@
 # Data Breach Monitoring Web App
 
 [ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
-![Architecture](architecturer.png)
+![Architecture](architectuer.png)
 
 [ in progress ] Frontend - Mapping endpoints to React 
 
