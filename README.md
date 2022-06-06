@@ -54,8 +54,9 @@ pulls credentials and performs a check depending on what information is availabl
 updates compromisedStatus
 
 /delete
-deletes selected credentials from database
---add undo
+
+deletes selected credentials from tables
+
 
 /sendemail
 Notifies selected emails with twilio sendgrid that their password showed up in a breach and should be updated
