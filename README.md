@@ -10,6 +10,8 @@ based on their use case (personal / enterprise)
 
 
 [ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
+
+
 [ in progress ] Frontend - Mapping endpoints to React 
 
 
