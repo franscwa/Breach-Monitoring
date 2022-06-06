@@ -13,7 +13,7 @@ based on their use case (personal / enterprise)
 [ in progress ] Frontend - Mapping endpoints to React 
 
 
-_________________________________________________________________________________________________________________________________________________
+## 
 Backend for a web application built with Java + Spring + Maven + Redis 
 
 Exposes endpoints for a react front end to fetch
@@ -26,8 +26,8 @@ ________________________________________________________________________________
 [to do]                     
 implement a cache w/ redis
 
-_________________________________________________________________________________________________________________________________________________
-**MODEL**
+_______________________________________________________________________________________________________________________________________
+## **MODEL**
 credential schema
 
 schema:
@@ -39,26 +39,27 @@ compromisedStatus
 }
 
 _________________________________________________________________________________________________________________________________________________
-**CONTROLLER**
+## **CONTROLLER**
 
 Endpoints - Main Route -  (/credentials)
 
-/addnew
+**/addnew**
 
 add a credential to your list
 needs email || username
 
-/recheck
+**/recheck**
 
 pulls credentials and performs a check depending on what information is available, can check email, password, and/or both
 updates compromisedStatus
 
-/delete
+**/delete**
 
 deletes selected credentials from tables
 
 
-/sendemail
+**/sendemail***
+
 Notifies selected emails with twilio sendgrid that their password showed up in a breach and should be updated
 
 
