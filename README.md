@@ -1,9 +1,15 @@
 # Breach-Monitoring
 # Data Breach Monitoring Web App
 
-[ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
+The aim of this project is to allow a user to easily monitor a list of credentials, giving them the option to notify them and/or each individual user
+based on their use case (personal / enterprise)
+
+##
+
 ![Architecture](architectuer.png)
 
+
+[ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
 [ in progress ] Frontend - Mapping endpoints to React 
 
 
@@ -34,23 +40,24 @@ compromisedStatus
 
 _________________________________________________________________________________________________________________________________________________
 **CONTROLLER**
-ENDPOINTS: Implemented this controller resource in Java Spring that performs specified functions in service layer
 
-/addCredential
+Endpoints - Main Route -  (/credentials)
 
-adds credential to your list
+/addnew
+
+add a credential to your list
 needs email || username
 
-/recheckCredentials
+/recheck
 
 pulls credentials and performs a check depending on what information is available, can check email, password, and/or both
 updates compromisedStatus
 
-/deleteCredential
+/delete
 deletes selected credentials from database
 --add undo
 
-/notify
+/sendemail
 Notifies selected emails with twilio sendgrid that their password showed up in a breach and should be updated
 
 
@@ -58,23 +65,6 @@ Notifies selected emails with twilio sendgrid that their password showed up in a
 _________________________________________________________________________________________________________________________________________________
 **VIEW**
 React Frontend
-<header>
-  Navbar Component
-  <Navbar />
-  </header>
-<body>
-View Component: In Progress
-<div id = view>
-  <div id = search-bar/>
-  <div id = credentialsTable>
-</div>
-
-  
-Button Components: In Progress
- <button id=AddCredential />
- <button id=Recheck />
- <button id=Delete />
- <button id=Notify />
-  </body>
+[in progress]
   
  
