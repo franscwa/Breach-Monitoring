@@ -37,8 +37,11 @@ schema:
 {
 
 email: string
+
 username: string
+
 password: string
+
 compromisedStatus: bool
 
 }
