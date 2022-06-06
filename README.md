@@ -7,7 +7,6 @@
 [ in progress ] Frontend - Mapping endpoints to React 
 
 
-[ planned ] PWA functionality
 _________________________________________________________________________________________________________________________________________________
 Backend for a web application built with Java + Spring + Maven + Redis 
 
