@@ -9,7 +9,7 @@ based on their use case (personal / enterprise)
 ![Architecture](architectuer.png)
 
 
-[ done ] Backend - MVC style architecture Java Spring backend with a mySQL database
+[ done ] MVC style architecture Java Spring backend with a mySQL database
 
 
 [ in progress ] Frontend - Mapping endpoints to React 
