@@ -14,7 +14,6 @@ public class Credential implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-
     private Long id;
     private String email;
     private int securityLevel;
@@ -22,7 +21,7 @@ public class Credential implements Serializable {
     private String password;
     private String hashedPassword;
 
-    private String prefixedHash;
+    private String hashPrefix;
 
     public Credential() {
 
@@ -48,12 +47,12 @@ public class Credential implements Serializable {
         isCompromised = compromised;
     }
 
-    public String getPrefixedHash() {
-        return prefixedHash;
+    public String getHashPrefix() {
+        return hashPrefix;
     }
 
-    public void setPrefixedHash(String hashToPrefix) {
-        this.prefixedHash = hashToPrefix.substring(0, 5);
+    public void setHashPrefix(String hashToPrefix) {
+        hashPrefix = hashToPrefix.substring(0, 5);
     }
 
     public String getHashedPassword() {

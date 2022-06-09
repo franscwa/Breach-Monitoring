@@ -1,5 +1,7 @@
 package projects.Personal.DataBreach;
 
+import com.mailgun.api.v3.MailgunMessagesApi;
+import com.mailgun.client.MailgunClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,11 @@ public class DataBreachApplication {
 		SpringApplication.run(DataBreachApplication.class, args);
 	}
 
+	@Bean
+	public MailgunMessagesApi mailgunMessagesApi() {
+		return MailgunClient.config(PRIVATE_API_KEY)
+				.createApi(MailgunMessagesApi.class);
+	}
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();

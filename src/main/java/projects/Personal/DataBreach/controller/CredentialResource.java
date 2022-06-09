@@ -39,7 +39,7 @@ public class CredentialResource {
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/recheck")
     public ResponseEntity<Credential> updateCredential(@RequestBody Credential credential){
         Credential newCredential = credentialService.checkCredential(credential);
 

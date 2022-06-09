@@ -26,9 +26,6 @@ public class CredentialService<WebClient> {
 
     public Credential saveCredential(Credential credential) {
        return credentialRepo.save(credential);
-
-       /* credential.setEmail(UUID.randomUUID().toString()); //this is where your user input goes
-        return credentialRepo.save(credential);*/
     }
 
     public List<Credential> getAllCredentials() {
@@ -36,9 +33,9 @@ public class CredentialService<WebClient> {
     }
 
     public Credential checkCredential(Credential credential){
-        //write code to call rest api with rest template
+
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://api.pwnedpasswords.com/range/" + credential.getPrefixedHash();
+        String url = "https://api.pwnedpasswords.com/range/" + credential.getHashPrefix();
         String response = restTemplate.getForObject(url, String.class);
         if(response.contains(credential.getHashedPassword())){
             credential.setIsCompromised(true);
