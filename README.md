@@ -27,23 +27,23 @@ ________________________________________________________________________________
 Base URL: {hostname}:8080/
 
 Endpoints
-**GET /credentials/ ** 
+**GET** /credentials/ 
 
 Lists all credentials
 
-**PUT  /credentials/{id} **
+**PUT**  /credentials/{id} 
 
 Adds a credential to the user's list
 
-**PUT  /credentials/{id}**
+**PUT**  /credentials/{id}
 
 Refreshes compromised status
 
-**DELETE  /credentials/{id}**
+**DELETE**  /credentials/{id}
 
 Removes credentials from the system
 
-**PUT /credentials/{id}/notify**
+**PUT** /credentials/{id}/notify
 
 Notifies selected emails using the Mailgun api 
 
