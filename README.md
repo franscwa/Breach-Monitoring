@@ -26,7 +26,8 @@ ________________________________________________________________________________
 ## API Documentation
 Base URL: {hostname}:8080/
 
-Endpoints
+Endpoints:
+
 **GET** /credentials/ 
 
 Lists all credentials
