@@ -8,7 +8,6 @@ based on their use case (personal / enterprise)
 
 
 
-
 [ done ] backend 
 
 
@@ -16,45 +15,39 @@ based on their use case (personal / enterprise)
 
 
 ## 
-Backend for a web application built with Java + Spring + Maven + Redis 
+Backend for a web application built with Java Spring, Maven, MySQL and Redis 
 
-Exposes endpoints for a react front end to fetch
-
-Business logic grabs user list of credentials input and puts it in a redis database
-uses redis search indexing, and other cloud tools to allow the user to look at the database, search it in an SPA
+Business logic fetches user defined lists of credentials and stored in a mySQL database to perform operations
 
 _________________________________________________________________________________________________________________________________________________
 [to do]                     
 Caching with Redis
 _________________________________________________________________________________________________________________________________________________
-## **CONTROLLER**
+## API Documentation
+Base URL: {hostname}:8080/
 
-Endpoints - Main Route -  (/credentials)
+Endpoints
+**GET /credentials/ ** 
 
-**/addnew**
+Lists all credentials
 
-add a credential to your list
-needs email || username
+**PUT  /credentials/{id} **
 
-**/recheck**
+Adds a credential to the user's list
 
-pulls credentials and performs a check depending on what information is available, can check email, password, and/or both
-updates compromisedStatus
+**PUT  /credentials/{id}**
 
-**/delete**
+Refreshes compromised status
 
-deletes selected credentials from tables
+**DELETE  /credentials/{id}**
 
+Removes credentials from the system
 
-**/sendemail***
+**PUT /credentials/{id}/notify**
 
-Notifies selected emails with twilio sendgrid that their password showed up in a breach and should be updated
+Notifies selected emails using the Mailgun api 
 
 
 
 _________________________________________________________________________________________________________________________________________________
-**VIEW**
-React Frontend
-[in progress]
-  
- 
+
