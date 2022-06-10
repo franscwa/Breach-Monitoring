@@ -44,9 +44,13 @@ Refreshes compromised status
 
 Removes credentials from the system
 
-**PUT** /credentials/{id}/notify
+**PUT** /notify/
 
-Notifies selected emails using the Mailgun api 
+Sends an email to all breached high alert level credentials
+
+**PUT** /notify/{id}/
+
+Sends an email to a specific breached credential
 
 
 
