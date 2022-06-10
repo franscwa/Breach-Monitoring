@@ -6,10 +6,10 @@ based on their use case (personal / enterprise)
 
 ##
 
-![Architecture](architectuer.png)
 
 
-[ done ] MVC style architecture Java Spring backend with a mySQL database
+
+[ done ] backend 
 
 
 [ in progress ] Frontend - Mapping endpoints to React 
@@ -25,25 +25,7 @@ uses redis search indexing, and other cloud tools to allow the user to look at t
 
 _________________________________________________________________________________________________________________________________________________
 [to do]                     
-Implement a cache using redis
-
-_______________________________________________________________________________________________________________________________________
-## **MODEL**
-credential schema:
-
-
-{
-
-email: string
-
-username: string
-
-password: string
-
-compromisedStatus: bool
-
-}
-
+Caching with Redis
 _________________________________________________________________________________________________________________________________________________
 ## **CONTROLLER**
 
