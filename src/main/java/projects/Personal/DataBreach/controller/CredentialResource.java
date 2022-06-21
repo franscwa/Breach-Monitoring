@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import projects.Personal.DataBreach.model.Credential;
+import projects.Personal.DataBreach.model.Credentials;
 import projects.Personal.DataBreach.service.CredentialService;
 
 
@@ -19,38 +19,49 @@ public class CredentialResource {
         this.credentialService = credentialService;
     }
 
-    @GetMapping("/getAll")
-    public ResponseEntity<List<Credential>> getAllCredentials(){
-        List<Credential> credentials = credentialService.getAllCredentials();
+    @CrossOrigin("http://localhost:3000")
+    @GetMapping("/")
+    public ResponseEntity<List<Credentials>> getAllCredentials(){
+        List<Credentials> credentials = credentialService.getAllCredentials();
         return new ResponseEntity<>(credentials, HttpStatus.OK);
     }
 
-    @GetMapping("/getById/{id}")
-    public ResponseEntity<Credential> getCredentialById(@PathVariable("id") Long id){
-        Credential credential = credentialService.findCredentialById(id);
+    @CrossOrigin("http://localhost:3000")
+    @GetMapping("/{id}")
+    public ResponseEntity<Credentials> getCredentialById(@PathVariable("id") Long id){
+        Credentials credential = credentialService.findCredentialById(id);
         return new ResponseEntity<>(credential, HttpStatus.OK);
     }
 
+    @CrossOrigin("http://localhost:3000")
+    @PostMapping("/")
+    public ResponseEntity<Credentials> addCredentials(@RequestBody Credentials credential){
+        Credentials newCredential = credentialService.saveCredential(credential);
+        return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
+    }
+    @CrossOrigin("http://localhost:3000")
+    @PutMapping("/notify/{id}")
+    public ResponseEntity<Credentials> NotifyById(@PathVariable("id") Long id){
+        Credentials credential = credentialService.findCredentialById(id);
 
+        return new ResponseEntity<>(credential, HttpStatus.OK);
+    }
+    @CrossOrigin("http://localhost:3000")
+    @PutMapping("/{id}")
+    public ResponseEntity<Credentials> updateCredential(@PathVariable("id") Long id , @RequestBody Credentials credential){
+        String newEmail = null;
+        Credentials newCredential = credentialService.findCredentialById(id);
 
-    @PostMapping("/addNew")
-    public ResponseEntity<Credential> addCredentials(@RequestBody Credential credential){
-        Credential newCredential = credentialService.saveCredential(credential);
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
 
-    @PutMapping("/recheck")
-    public ResponseEntity<Credential> updateCredential(@RequestBody Credential credential){
-        Credential newCredential = credentialService.checkCredential(credential);
-
-        return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCredential(@PathVariable("id") Long id){
         credentialService.deleteCredentialbyId(id);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
 
     //@GetMapping("/find/{email}")
     //public ResponseEntity<Credential> getEmployeeByEmail(@PathVariable("email") String email){
