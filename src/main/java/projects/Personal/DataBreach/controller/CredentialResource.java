@@ -39,13 +39,7 @@ public class CredentialResource {
         Credentials newCredential = credentialService.saveCredential(credential);
         return new ResponseEntity<>(newCredential, HttpStatus.CREATED);
     }
-    @CrossOrigin("http://localhost:3000")
-    @PutMapping("/notify/{id}")
-    public ResponseEntity<Credentials> NotifyById(@PathVariable("id") Long id){
-        Credentials credential = credentialService.findCredentialById(id);
 
-        return new ResponseEntity<>(credential, HttpStatus.OK);
-    }
     @CrossOrigin("http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<Credentials> updateCredential(@PathVariable("id") Long id , @RequestBody Credentials credential){

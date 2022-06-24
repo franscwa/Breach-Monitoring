@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import projects.Personal.DataBreach.model.Credentials;
-import projects.Personal.DataBreach.model.EmailNotification;
 import projects.Personal.DataBreach.service.CredentialService;
 import projects.Personal.DataBreach.service.NotificationService;
 
@@ -22,9 +21,11 @@ public class NotificationResource {
     }
 
     @CrossOrigin("http://localhost:3000")
-    @PostMapping("/")
-    public ResponseEntity<EmailNotification> sendEmailNotification(@RequestBody Credentials credential){
-        EmailNotification newNotification = notificationService.notify();
-        return new ResponseEntity<>(newNotification, HttpStatus.CREATED);
+    @PutMapping("/notify/{id}")
+    public ResponseEntity<Credentials> NotifyById(@PathVariable("id") Long id){
+        Credentials credential = credentialService.findCredentialById(id);
+
+        return new ResponseEntity<>(credential, HttpStatus.OK);
     }
+
 }
