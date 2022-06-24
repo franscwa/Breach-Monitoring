@@ -13,7 +13,5 @@ public interface CredentialRepo extends JpaRepository<Credentials, Long> {
      //add find credential by id
     Optional<Credentials> findCredentialById(Long id);
 
-    //add
-
 
 }

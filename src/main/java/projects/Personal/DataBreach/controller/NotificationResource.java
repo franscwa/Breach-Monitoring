@@ -21,7 +21,7 @@ public class NotificationResource {
     }
 
     @CrossOrigin("http://localhost:3000")
-    @PutMapping("/notify/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Credentials> NotifyById(@PathVariable("id") Long id){
         Credentials credential = credentialService.findCredentialById(id);
 
@@ -29,3 +29,5 @@ public class NotificationResource {
     }
 
 }
+
+
