@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class NotificationService
 {
-    private static CredentialService credentialRepo;
+    private static CredentialService credentialService;
     Dotenv dotenv = Dotenv.load();
-    public MessageResponse NotifyById(Long id){
-        //    public MessageResponse sendSimpleMessage() {
+    public MessageResponse EmailNotificationById(Long id){
+
                 MailgunMessagesApi mailgunMessagesApi = MailgunClient.config(dotenv.get("MAIL.API.KEY"))
                         .createApi(MailgunMessagesApi.class);
-                //Host domain
+
                 String hostDomain = dotenv.get("MAIL.DOMAIN");
 
                 //pull credential from database
-            String credentialEmail = credentialRepo.findCredentialById(id).toString();
+            String credentialEmail = credentialService.findCredentialById(id).toString();
 
                 Message message = Message.builder()
                         .from("Data Breach Monitoring" + hostDomain)

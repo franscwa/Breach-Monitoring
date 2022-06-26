@@ -4,7 +4,7 @@ services:
     image: 'mysql:8-oracle'
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=miloroot
+      - MYSQL_PASSWORD=
       - MYSQL_DATABASE=user_credentials
     ports:
       - "3307:3306"
@@ -15,7 +15,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/user_credentials?autoReconnect=true&useSSL=false
       SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_DATASOURCE_PASSWORD: "miloroot"
+      SPRING_DATASOURCE_PASSWORD:
     build:
       context: "./"
       dockerfile: "DockerFile"
