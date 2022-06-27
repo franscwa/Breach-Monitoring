@@ -1,5 +1,7 @@
 package projects.Personal.DataBreach.controller;
 
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,7 @@ public class CredentialResource {
         this.credentialService = credentialService;
     }
 
+    @Cacheable
     @CrossOrigin("http://localhost:3000")
     @GetMapping("/")
     public ResponseEntity<List<Credentials>> getAllCredentials(){
@@ -26,6 +29,7 @@ public class CredentialResource {
         return new ResponseEntity<>(credentials, HttpStatus.OK);
     }
 
+    @CachePut(value = "credentials", key="ic")
     @CrossOrigin("http://localhost:3000")
     @GetMapping("/{id}")
     public ResponseEntity<Credentials> getCredentialById(@PathVariable("id") Long id){

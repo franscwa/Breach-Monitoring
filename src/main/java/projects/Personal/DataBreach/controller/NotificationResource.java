@@ -1,5 +1,6 @@
 package projects.Personal.DataBreach.controller;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class NotificationResource {
         this.credentialService = credentialService;
     }
 
+    @Cacheable(value = "notifications", key="id")
     @CrossOrigin("http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<Credentials> NotifyById(@PathVariable("id") Long id){
