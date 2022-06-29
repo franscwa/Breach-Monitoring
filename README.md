@@ -2,7 +2,7 @@
 # Data Breach Monitoring Web App
 
 The aim of this project is to allow a user to easily monitor a list of credentials, giving them the option to notify them and/or each individual user
-based on their use case rise)
+based on their use case)
 
 ##
 
@@ -15,14 +15,12 @@ based on their use case rise)
 
 
 ## 
-Backend for a web application built with Java Spring, Maven, MySQL and Redis 
+Backend for a web application built with Java Spring (Maven), MySQL and Redis 
 
-<<<<<<< HEAD
 Business logic fetches user defined lists of credentials and stored in a mySQL database to perform operations
 
 _________________________________________________________________________________________________________________________________________________
-[to do]                     
-Caching with Redis
+
 _________________________________________________________________________________________________________________________________________________
 ## API Documentation
 Base URL: {hostname}:8080/
@@ -38,21 +36,6 @@ ________________________________________________________________________________
 [to do]                     
 Implement a cache with redis
 
-_______________________________________________________________________________________________________________________________________
-## **SCHEMA**
-credential 
-{
-
-email: string
-
-username: string
-
-password: string
-
-compromisedStatus: bool
-
-
-}
 
 _________________________________________________________________________________________________________________________________________________
 ##  RESOURCE 
