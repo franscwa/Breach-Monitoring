@@ -46,32 +46,25 @@ Path:  <ip-address>:8080/credentials
 
 Retrieves all 
 **/addnew**
->>>>>>> 91bf3372 (fixed new services and repos)
 
 Lists all credentials
 
-<<<<<<< HEAD
 **PUT**  /credentials/{id} 
 =======
 **/recheck/id**
->>>>>>> 91bf3372 (fixed new services and repos)
 
 Adds a credential to the user's list
 
-<<<<<<< HEAD
 **PUT**  /credentials/{id}
 =======
 **/delete/id**
->>>>>>> 91bf3372 (fixed new services and repos)
 
 Refreshes compromised status
 
 **DELETE**  /credentials/{id}
 
-<<<<<<< HEAD
 Removes credentials from the system
 =======
-**/notify/id***
 >>>>>>> 91bf3372 (fixed new services and repos)
 
 **PUT** /notify/
